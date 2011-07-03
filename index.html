@@ -1,0 +1,227 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale:0.25, maximum-scale:1.6, user-scalable=yes;" />
+    <meta name="author" content="Gordon Mei" />
+    <title>Scrollerblades - Studio Gordon Mei - Lab</title>
+    <style>
+        /* General (and footer) */
+        * {margin: 0; padding: 0; font: normal 14pt "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue","Helvetica","Arial",sans-serif; font-weight: 300;}
+        body {margin: 2em 5em;}
+        a:link, a:visited, a:focus, a:active {color: #009aff;}
+        a:hover {color: #ff5c80; text-decoration: line-through;}
+        nav, section, footer {display: block;}
+        #sosumi {margin: 1em 0;}
+        #sosumi a:hover {text-decoration: none; color: #abc;}
+        #sosumi, #sosumi a, #sosumi p, #sosumi p a {font-size: 10pt;}
+        #sosumi p, #sosumi p a {color: #999; font-style: italic;}
+        @media only screen and (max-device-width:480px) {body {margin: 1em 0.3em;}}
+
+
+        /* Interaction-dependent */
+        .navbar {
+            position: relative;
+            top: 0; /* for when position becomes set as fixed */
+            left: 0; /* for when position becomes set as fixed */
+            margin: 270px auto 0 auto;
+            width: 100%;
+            height: 50px;
+        }
+
+        .navbar.sticky { /* using CSS multiple-classes since IE6 doesn't support position:fixed anyway. (see below) */
+            position: fixed; /* IE6 is going to hate this. There are workarounds, but it's 2011 and not worth the trouble. Also, MobileSafari pre-iOS5 lacks support for position: fixed. */
+            margin-top: 0;
+        }
+
+
+        /* Interaction-independent */
+        .navbar {
+            border: 1px solid #bbb;
+            background: #eee; /* define beforehand for IE8, IE7, IE6 */
+            background: rgba(240, 240, 240, 1);
+            -webkit-box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+            -moz-box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+            -o-box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 2px 6px rgba(245, 245, 245, 0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+            text-align: center;
+            filter:alpha(opacity=90);
+            opacity: 0.9;
+        }
+
+        .navbarinner {
+            position: relative;
+            margin: 0 auto;
+            width: 780px;
+            height: 50px;
+            line-height: 45px;
+            text-shadow: 0 1px 0 #fff;
+        }
+
+        #sectionals {
+            height: 1000px; /* for demo purposes */
+        }
+
+        #sectionals h1 {
+            font-size: 30pt;
+            color: #888;
+        }
+
+        #sectionals p {
+            margin: 1em 0.1em 0 0.1em;
+        }
+
+        .sticky + #sectionals {
+            margin-top: 0;
+        }
+    </style>
+
+    <link rel="shortcut icon" href="../../favico.png" type="image/png" />
+
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <nav id="navbarmitzvah" class="navbar">
+        <div class="navbarinner">
+            Scrollerblades.
+        </div>
+    </nav>
+    <section id="sectionals">
+        <h1>Cheesiness</h1>
+        <p>
+            Once upon a time, a young man named Hans invented a time machine. It was a magnificent work of science, perfected over years of meticulous care, that had the potential to revolutionize the world.
+        </p>
+        <p>
+            But Hans was too terrified to risk himself in an experimental travel through time. He considered other people, but quickly found himself immensely concerned about the ramifications of leaving the state of the future and past to the hands of an individual he could not control.
+        </p>
+        <p>
+            So after days of indecisiveness, he chose to play it safe and sent a hard cube of yellow cheese through his machine and into the depths of time-space.
+        </p>
+        <p>
+            He waited.
+        </p>
+        <p>
+            And waited.
+        </p>
+        <p>
+            And after three days, he gave up in frustration and deactivated his time machine.
+        </p>
+        <p>
+            Then he turned around, and slipped on a hard cube of yellow cheese that had materialized out of time-space from three days ago. Then he died from the fall.
+        </p>
+        <p>
+            And the time machine rotted in the basement, but not as quickly as the hard cube of yellow cheese.
+        </p>
+        <p>
+            - Gordon Mei, September 16, 2005
+        </p>
+    </section>
+
+    <footer id="sosumi">
+        2011. <a href="http://www.monstercyb.org/gordon/lab">Monstercyb.org</a>. A part of the <a href="http://www.ocf.berkeley.edu/~gordeon">GordeonBleu</a> network.
+        <p>
+            Seeing your face makes me scroll up.
+        </p>
+    </footer>
+
+
+    <script>
+        var bar = document.getElementById('navbarmitzvah');
+        var barMarginTop = parseInt(getCSSByProp(bar, 'margin-top', 'marginTop'));
+        var content = document.getElementById('sectionals');
+        var firstrun = true;
+
+
+        /* Some IE love */
+        function getScrollYPost() {
+            if (document.documentElement.scrollTop) {
+                return document.documentElement.scrollTop;
+            }
+            else {
+                return window.scrollY;
+            }
+        }
+
+
+        window.onscroll = function() {
+
+            var scrollYPos = getScrollYPost();
+
+            if (scrollYPos > barMarginTop) {
+                if (firstrun) {
+                    /* Use your own library's equivalent of addClass here. */
+                    addClass(bar, 'sticky');
+
+                    // Approach 1: Use this one if you decide to use the style attribute to set the initial height.
+                    //var barHeight = parseInt(bar.style.height);
+
+                    // Approach 2: Use this one if you decide to rely on CSS properties (I recommended this.)
+                    var barHeight = parseInt(getCSSByProp(bar, 'height', 'height'));
+
+                    content.style.marginTop = scrollYPos + barHeight + 'px';
+
+                    firstrun = false;
+                }
+            }
+            else {
+                if (!firstrun) {
+                    removeClass(bar, 'sticky');
+
+                    // Restore the margin-top value of this element, which obviously might not be zero.
+                    //content.style.marginTop = 0;
+                    content.style.marginTop = '';
+
+                    firstrun = true;
+                }
+            }
+
+        }
+
+
+        /* Some IE love */
+        function getCSSByProp(elemental, cssProperty, cssPropertyCamelCase) {
+            if (elemental.currentStyle) {
+                var cssPropVal = elemental.currentStyle[cssPropertyCamelCase];
+            }
+            else if (window.getComputedStyle) {
+                var cssPropVal = document.defaultView.getComputedStyle(elemental, null).getPropertyValue(cssProperty);
+            }
+            return cssPropVal;
+        }
+
+
+        /* Faux library for demo purposes */
+        function hasClass(el, cssClass) {
+            return el.className && new RegExp("(^|\\s)" + cssClass + "(\\s|$)").test(el.className);
+        }
+
+        function addClass(el, cssClass) {
+            if (!this.hasClass(el, cssClass)) {
+                el.className += " " + cssClass;
+            }
+        }
+
+        function removeClass(el, cssClass) {
+            if (hasClass(el, cssClass)) {
+                var reg = new RegExp("(\\s|^)" + cssClass + "(\\s|$)");
+                el.className = el.className.replace(reg,"");
+            }
+        }
+    </script>
+
+    <!--Created: 2011 June 22-->
+    <!--Revised: 2011 July 2-->
+
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+    var pageTracker = _gat._getTracker("UA-299058-9");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
+</body>
+</html>

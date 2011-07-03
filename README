@@ -1,0 +1,4 @@
+2011 June 22 and July 2. Sticky navigation bar that locks when the vertical scroll position reaches that element (i.e. element hits the top of the viewport when scrolling down), and unlocks when scrolling back up above that position.
+
+Tested as working in modern versions of: Chrome, Safari, Firefox, Camino, Opera; and IE9, IE8, and IE7.
+Known limitations: IE6 and MobileSafari before iOS 5 both lack support for position:fixed. There are workarounds for IE6, but it's 2011 and not worth the trouble.
